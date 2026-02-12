@@ -5,14 +5,23 @@ box-sizing:border-box;
 }
 
 body{
-background:linear-gradient(135deg,#fbeaff,#e0f7fa);
-font-family:'Poppins',sans-serif;
-color:#444;
+font-family:'Inter',sans-serif;
+background:#fdf6ff;
+color:#333;
 overflow-x:hidden;
 }
 
-h1,h2{
-font-family:'Playfair Display',serif;
+/* Background Blur */
+
+.bg-blur{
+position:fixed;
+width:100%;
+height:100vh;
+background:
+radial-gradient(circle at 20% 30%, #ffd6f6 0%, transparent 40%),
+radial-gradient(circle at 80% 70%, #d6f0ff 0%, transparent 40%);
+filter:blur(80px);
+z-index:-1;
 }
 
 /* POPUP */
@@ -21,166 +30,159 @@ font-family:'Playfair Display',serif;
 position:fixed;
 width:100%;
 height:100vh;
-background:rgba(255,255,255,0.9);
 display:flex;
 justify-content:center;
 align-items:center;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
 .popup{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.1);
+background:rgba(255,255,255,0.8);
+padding:50px;
+border-radius:25px;
 text-align:center;
-animation:fadeIn 1s ease;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+animation:fadeIn 1.2s ease;
 }
 
 .popup h2{
+font-family:'Playfair Display',serif;
+font-size:28px;
 margin-bottom:30px;
-font-size:26px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
 }
 
 .btn{
-padding:12px 30px;
+padding:12px 35px;
+border-radius:40px;
 border:none;
-border-radius:30px;
-font-size:16px;
 cursor:pointer;
-margin:10px;
-transition:0.3s;
+font-size:16px;
+transition:0.4s;
 }
 
 .yes{
-background:#ffb6c1;
+background:#ffb6d9;
 color:white;
 }
 
 .no{
-background:#ddd;
+background:#eee;
 }
 
 .yes:hover{
-transform:scale(1.1);
+transform:scale(1.15);
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(-20px);}
-to{opacity:1;transform:translateY(0);}
-}
+/* HERO */
 
-/* MAIN */
-
-.main{
-display:none;
-padding:80px 20px;
+.hero{
 text-align:center;
-animation:fadeIn 1.5s ease;
+padding:100px 20px 50px;
 }
 
-.main h1{
-font-size:40px;
-margin-bottom:20px;
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:42px;
 }
 
-/* TIMELINE */
+.hero h2{
+font-size:34px;
+color:#ff7eb3;
+margin-top:5px;
+}
 
-.timeline{
-margin-top:60px;
+.subtitle{
+margin-top:15px;
+font-weight:300;
+opacity:0.7;
+}
+
+/* JOURNEY */
+
+.journey{
+max-width:900px;
+margin:0 auto;
+padding:50px 20px;
 position:relative;
-max-width:800px;
-margin-left:auto;
-margin-right:auto;
 }
 
-.timeline::after{
+.journey::before{
 content:'';
 position:absolute;
-width:4px;
-background:#ffb6c1;
+left:50%;
 top:0;
 bottom:0;
-left:50%;
-margin-left:-2px;
+width:3px;
+background:linear-gradient(to bottom,#ffb6d9,#b6e0ff);
+transform:translateX(-50%);
 }
 
-.container{
-padding:20px 40px;
-position:relative;
-width:50%;
-}
-
-.left{
-left:0;
-}
-
-.right{
-left:50%;
-}
-
-.container img{
-width:100%;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
+.memory{
+margin:80px 0;
+text-align:center;
 opacity:0;
-transform:translateY(40px);
-transition:1s;
+transform:translateY(60px);
+transition:1s ease;
 }
 
-.container.show img{
+.memory.show{
 opacity:1;
 transform:translateY(0);
 }
 
-.dot{
-position:absolute;
-width:20px;
-height:20px;
-background:#ffb6c1;
-border-radius:50%;
-top:30px;
-right:-10px;
-z-index:1;
+.stage{
+display:block;
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+font-size:20px;
+color:#ff7eb3;
 }
 
-.right .dot{
-left:-10px;
+.memory img{
+width:70%;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+transition:0.5s;
 }
 
-/* RESPONSIVE */
-
-@media screen and (max-width:768px){
-.container{
-width:100%;
-left:0 !important;
-padding-left:70px;
-padding-right:25px;
-}
-.timeline::after{
-left:20px;
-}
-.dot{
-left:10px !important;
-right:auto;
-}
+.memory img:hover{
+transform:scale(1.05);
 }
 
-/* PAPER MESSAGE */
+/* LETTER */
+
+.letter{
+padding:100px 20px;
+display:flex;
+justify-content:center;
+}
 
 .paper{
-margin-top:80px;
-background:#fff8dc;
-padding:40px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+background:#fffaf0;
+padding:50px;
+border-radius:20px;
 max-width:800px;
-margin-left:auto;
-margin-right:auto;
-text-align:left;
-line-height:1.8;
-font-family:'Playfair Display',serif;
+line-height:1.9;
+box-shadow:0 20px 50px rgba(0,0,0,0.1);
 animation:fadeIn 2s ease;
+}
+
+.paper h3{
+font-family:'Playfair Display',serif;
+margin-bottom:20px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 audio{
