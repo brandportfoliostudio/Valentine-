@@ -7,24 +7,25 @@ const music = document.getElementById("bgMusic");
 noBtn.addEventListener("click",()=>{
   noBtn.style.opacity="0";
   noBtn.style.pointerEvents="none";
-  yesBtn.style.transform="scale(1.5)";
+  yesBtn.style.transform="scale(1.6)";
 });
 
 yesBtn.addEventListener("click",()=>{
   popup.style.display="none";
   mainContent.style.display="block";
   music.play();
+  setTimeout(typeWriter,1200);
 });
 
 /* Scroll Reveal */
 
-const memories = document.querySelectorAll(".memory");
+const photos = document.querySelectorAll(".photo");
 
 window.addEventListener("scroll",()=>{
-  memories.forEach(mem=>{
-    const top = mem.getBoundingClientRect().top;
+  photos.forEach(photo=>{
+    const top = photo.getBoundingClientRect().top;
     if(top < window.innerHeight - 100){
-      mem.classList.add("show");
+      photo.classList.add("show");
     }
   });
 });
@@ -52,10 +53,6 @@ function typeWriter(){
   if(i < text.length){
     document.getElementById("typeText").innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 25);
+    setTimeout(typeWriter, 22);
   }
 }
-
-yesBtn.addEventListener("click",()=>{
-  setTimeout(typeWriter,1000);
-});
