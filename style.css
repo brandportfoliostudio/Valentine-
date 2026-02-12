@@ -1,11 +1,12 @@
 body{
 margin:0;
-font-family: 'Georgia', serif;
 background:#fdf6f9;
+font-family:Georgia, serif;
 overflow:hidden;
+cursor:none;
 }
 
-/* INTRO COVER */
+/* INTRO */
 
 .intro{
 position:fixed;
@@ -23,7 +24,7 @@ text-align:center;
 }
 
 .cover h1{
-font-size:40px;
+font-size:42px;
 margin-bottom:20px;
 }
 
@@ -31,9 +32,8 @@ margin-bottom:20px;
 padding:12px 30px;
 border:none;
 border-radius:30px;
-background:#fff;
+background:white;
 cursor:pointer;
-font-size:16px;
 }
 
 /* BOOK */
@@ -54,7 +54,7 @@ width:100%;
 height:100%;
 background:#fffdf7;
 border-radius:10px;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -62,16 +62,16 @@ transition:transform 1s;
 transform-origin:left;
 }
 
-.page img{
-max-width:70%;
-border-radius:10px;
-}
-
 .polaroid{
 background:white;
-padding:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-transform:rotate(-3deg);
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+transform:rotate(-4deg);
+}
+
+.page img{
+max-width:75%;
+border-radius:10px;
 }
 
 /* CONTROLS */
@@ -94,7 +94,7 @@ font-size:18px;
 cursor:pointer;
 }
 
-/* HEARTS */
+/* HEARTS BACKGROUND */
 
 .hearts::before{
 content:"";
@@ -111,4 +111,16 @@ z-index:-1;
 @keyframes float{
 from{background-position:0 0;}
 to{background-position:0 200px;}
+}
+
+/* CURSOR GLOW */
+
+.cursor-glow{
+position:fixed;
+width:20px;
+height:20px;
+background:rgba(248,200,220,0.7);
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
 }
