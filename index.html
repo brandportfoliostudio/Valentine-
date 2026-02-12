@@ -3,60 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Gargi</title>
+<title>Our Story</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- Ambient Background -->
+<div class="bg-blur"></div>
+
 <!-- POPUP -->
 <div class="overlay" id="popup">
   <div class="popup">
-    <h2>Hey Gargi, would you like to be my Valentine?</h2>
-    <button class="btn yes" id="yesBtn">Yes</button>
-    <button class="btn no" id="noBtn">No</button>
+    <h2>Hey Gargi,<br>Would you like to be my Valentine?</h2>
+    <div class="buttons">
+      <button class="btn yes" id="yesBtn">Yes</button>
+      <button class="btn no" id="noBtn">No</button>
+    </div>
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="main" id="mainContent">
+<!-- MAIN STORY -->
+<section class="main" id="mainContent">
 
-  <h1>Happy Valentine's Day Gargi</h1>
+  <header class="hero">
+    <h1>Happy Valentine's Day</h1>
+    <h2>Gargi</h2>
+    <p class="subtitle">Every story has a beginning. Ours felt different.</p>
+  </header>
 
-  <div class="timeline">
+  <section class="journey">
 
-    <div class="container left">
-      <span class="dot"></span>
-      <img src="chat1.jpg" alt="">
+    <div class="memory">
+      <span class="stage">The First Hello</span>
+      <img src="chat1.jpg">
     </div>
 
-    <div class="container right">
-      <span class="dot"></span>
-      <img src="chat2.jpg" alt="">
+    <div class="memory">
+      <span class="stage">Late Night Conversations</span>
+      <img src="chat2.jpg">
     </div>
 
-    <div class="container left">
-      <span class="dot"></span>
-      <img src="chat3.jpg" alt="">
+    <div class="memory">
+      <span class="stage">Comfort Without Realising</span>
+      <img src="chat3.jpg">
     </div>
 
-    <div class="container right">
-      <span class="dot"></span>
-      <img src="chat4.jpg" alt="">
+    <div class="memory">
+      <span class="stage">Something Felt Different</span>
+      <img src="chat4.jpg">
     </div>
 
-    <div class="container left">
-      <span class="dot"></span>
-      <img src="confess.jpg" alt="">
+    <div class="memory">
+      <span class="stage">The Confession</span>
+      <img src="confess.jpg">
     </div>
 
-  </div>
+  </section>
 
-  <div class="paper">
-    <h2>How I Met You</h2>
-    <p>
+  <section class="letter">
+    <div class="paper">
+      <h3>How I Met You</h3>
+      <p>
 It was just a random app .. befriend.. it was 1st of December 2025 ..
 one random right swipe a random profile it felt like something but i didn't know what it was..
 but then she accepted my request and we started talking and then each day i started feeling something..
@@ -72,10 +82,11 @@ and i thought now I'm gone.. khel khatam ..
 but idk how but she felt the same
 we shared our insta and from there we can say december theory is real..
 jst a random hii turned into a lifetime bond..
-    </p>
-  </div>
+      </p>
+    </div>
+  </section>
 
-</div>
+</section>
 
 <audio id="bgMusic" src="song.mp3"></audio>
 
