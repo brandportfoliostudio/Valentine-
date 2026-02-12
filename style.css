@@ -7,21 +7,27 @@ box-sizing:border-box;
 body{
 font-family:'Inter',sans-serif;
 background:#fdf6ff;
-color:#333;
 overflow-x:hidden;
+color:#333;
 }
 
-/* Background Blur */
+/* Animated Pastel Background */
 
-.bg-blur{
+.bg-animation{
 position:fixed;
 width:100%;
 height:100vh;
 background:
-radial-gradient(circle at 20% 30%, #ffd6f6 0%, transparent 40%),
-radial-gradient(circle at 80% 70%, #d6f0ff 0%, transparent 40%);
-filter:blur(80px);
+radial-gradient(circle at 20% 30%, #ffd6f6, transparent 40%),
+radial-gradient(circle at 80% 70%, #d6f0ff, transparent 40%);
+filter:blur(100px);
 z-index:-1;
+animation:moveBg 15s infinite alternate ease-in-out;
+}
+
+@keyframes moveBg{
+0%{transform:translate(0,0);}
+100%{transform:translate(-50px,-30px);}
 }
 
 /* POPUP */
@@ -34,17 +40,17 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:rgba(255,255,255,0.6);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 z-index:1000;
 }
 
 .popup{
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.85);
 padding:50px;
-border-radius:25px;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,0.1);
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
-animation:fadeIn 1.2s ease;
+animation:fadeIn 1s ease;
 }
 
 .popup h2{
@@ -59,17 +65,17 @@ justify-content:center;
 gap:20px;
 }
 
-.btn{
+button{
 padding:12px 35px;
 border-radius:40px;
 border:none;
 cursor:pointer;
-font-size:16px;
 transition:0.4s;
+font-size:16px;
 }
 
 .yes{
-background:#ffb6d9;
+background:#ff9ecf;
 color:white;
 }
 
@@ -85,82 +91,91 @@ transform:scale(1.15);
 
 .hero{
 text-align:center;
-padding:100px 20px 50px;
+padding:120px 20px 60px;
 }
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:42px;
+font-size:44px;
 }
 
 .hero h2{
-font-size:34px;
 color:#ff7eb3;
-margin-top:5px;
+font-size:32px;
 }
 
 .subtitle{
-margin-top:15px;
-font-weight:300;
+margin-top:10px;
 opacity:0.7;
 }
 
-/* JOURNEY */
+/* TIMELINE SCRAPBOOK */
 
-.journey{
-max-width:900px;
-margin:0 auto;
-padding:50px 20px;
+.timeline{
 position:relative;
+max-width:1000px;
+margin:auto;
+padding:50px 0;
 }
 
-.journey::before{
+.timeline::before{
 content:'';
 position:absolute;
 left:50%;
+width:4px;
+background:linear-gradient(to bottom,#ff9ecf,#b6e0ff);
 top:0;
 bottom:0;
-width:3px;
-background:linear-gradient(to bottom,#ffb6d9,#b6e0ff);
 transform:translateX(-50%);
 }
 
 .memory{
-margin:80px 0;
-text-align:center;
+width:50%;
+padding:40px;
+position:relative;
 opacity:0;
 transform:translateY(60px);
-transition:1s ease;
+transition:1s;
 }
+
+.memory.left{left:0;}
+.memory.right{left:50%;}
 
 .memory.show{
 opacity:1;
 transform:translateY(0);
 }
 
-.stage{
-display:block;
-font-family:'Playfair Display',serif;
-margin-bottom:15px;
-font-size:20px;
-color:#ff7eb3;
-}
-
-.memory img{
-width:70%;
-border-radius:20px;
+.polaroid{
+background:white;
+padding:15px;
+border-radius:15px;
 box-shadow:0 20px 40px rgba(0,0,0,0.1);
-transition:0.5s;
+transform:rotate(-2deg);
+transition:0.4s;
 }
 
-.memory img:hover{
-transform:scale(1.05);
+.memory.right .polaroid{
+transform:rotate(2deg);
+}
+
+.polaroid img{
+width:100%;
+border-radius:10px;
+}
+
+.polaroid span{
+display:block;
+margin-top:10px;
+font-family:'Dancing Script',cursive;
+font-size:20px;
+text-align:center;
 }
 
 /* LETTER */
 
 .letter{
-padding:100px 20px;
+padding:120px 20px;
 display:flex;
 justify-content:center;
 }
@@ -172,7 +187,6 @@ border-radius:20px;
 max-width:800px;
 line-height:1.9;
 box-shadow:0 20px 50px rgba(0,0,0,0.1);
-animation:fadeIn 2s ease;
 }
 
 .paper h3{
@@ -180,11 +194,31 @@ font-family:'Playfair Display',serif;
 margin-bottom:20px;
 }
 
+/* ENDING */
+
+.ending{
+text-align:center;
+padding:100px 20px;
+font-family:'Playfair Display',serif;
+font-size:28px;
+opacity:0.7;
+}
+
+/* ANIMATIONS */
+
 @keyframes fadeIn{
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-audio{
-display:none;
+audio{display:none;}
+
+@media(max-width:768px){
+.memory{
+width:100%;
+left:0 !important;
+}
+.timeline::before{
+left:20px;
+}
 }
