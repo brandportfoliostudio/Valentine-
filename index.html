@@ -1,62 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Story</title>
+<title>For Gargi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fdf6f9,#f6f0ff,#eef6ff);
+overflow-x:hidden;
+color:#444;
+}
+
+/* ---------------- POPUP ---------------- */
+
+.overlay{
+position:fixed;
+width:100%;
+height:100vh;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(20px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.popup{
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 20px 60px rgba(0,0,0,0.08);
+text-align:center;
+max-width:400px;
+animation:fadeIn 1s ease;
+}
+
+.popup h2{
+font-family:'Playfair Display',serif;
+font-weight:500;
+margin-bottom:30px;
+font-size:26px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+button{
+padding:12px 28px;
+border-radius:30px;
+border:none;
+cursor:pointer;
+font-size:16px;
+transition:all 0.3s ease;
+}
+
+.yes{
+background:#f8c8dc;
+color:#333;
+}
+
+.no{
+background:#e4e4e4;
+}
+
+.yes:hover{
+transform:scale(1.1);
+}
+
+.no:hover{
+transform:scale(0.9);
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+
+.content{
+opacity:0;
+transition:opacity 1.5s ease;
+}
+
+.show{
+opacity:1;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:42px;
+font-weight:500;
+margin-bottom:15px;
+}
+
+.hero p{
+font-weight:300;
+letter-spacing:1px;
+}
+
+/* ---------------- JOURNEY SECTION ---------------- */
+
+.journey{
+padding:80px 10%;
+position:relative;
+}
+
+.timeline{
+position:relative;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:50%;
+top:0;
+width:2px;
+height:100%;
+background:#e0d6ff;
+transform:translateX(-50%);
+}
+
+.memory{
+width:45%;
+margin-bottom:80px;
+position:relative;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.memory img{
+width:100%;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.memory.left{
+left:0;
+}
+
+.memory.right{
+left:55%;
+}
+
+.memory.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letter-section{
+display:flex;
+justify-content:center;
+padding:100px 20px;
+}
+
+.letter{
+background:#fffdf7;
+padding:40px;
+max-width:700px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.07);
+font-family:'Playfair Display',serif;
+line-height:1.8;
+font-size:18px;
+position:relative;
+}
+
+.letter::before{
+content:'';
+position:absolute;
+top:-15px;
+left:30px;
+width:50px;
+height:50px;
+background:#fffdf7;
+transform:rotate(45deg);
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:900px){
+
+.memory,
+.memory.right,
+.memory.left{
+width:100%;
+left:0;
+}
+
+.timeline::before{
+left:10px;
+}
+
+}
+</style>
 </head>
 
 <body>
 
-<div class="background-blur"></div>
-<div class="grain"></div>
-
-<!-- POPUP -->
 <div class="overlay" id="popup">
-  <div class="popup">
-    <h2>Hey Gargi,<br>Would you like to be my Valentine?</h2>
-    <div class="buttons">
-      <button id="yesBtn" class="yes">Yes</button>
-      <button id="noBtn" class="no">No</button>
-    </div>
-  </div>
+<div class="popup">
+<h2>Hey Gargi, would you like to be my Valentine?</h2>
+<div class="buttons">
+<button class="yes" id="yesBtn">Yes</button>
+<button class="no" id="noBtn">No</button>
 </div>
-
-<!-- MAIN -->
-<div class="main" id="mainContent">
-
-<section class="hero">
-  <h1>Happy Valentine's Day</h1>
-  <p>Some memories don’t need captions.</p>
-</section>
-
-<section class="gallery">
-
-  <div class="photo"><img src="chat1.jpg"></div>
-  <div class="photo"><img src="chat2.jpg"></div>
-  <div class="photo"><img src="chat3.jpg"></div>
-  <div class="photo"><img src="chat4.jpg"></div>
-  <div class="photo"><img src="confess.jpg"></div>
-
-</section>
-
-<section class="letter">
-  <div class="paper">
-    <p id="typeText"></p>
-  </div>
-</section>
-
-<section class="ending">
-  <p>To Be Continued...</p>
-</section>
-
+</div>
 </div>
 
 <audio id="bgMusic" src="song.mp3"></audio>
 
-<script src="script.js"></script>
+<div class="content" id="mainContent">
+
+<section class="hero">
+<h1>Happy Valentine’s Day Gargi</h1>
+<p>From a random swipe to forever.</p>
+</section>
+
+<section class="journey">
+<div class="timeline">
+
+<div class="memory left"><img src="images/chat1.jpg"></div>
+<div class="memory right"><img src="images/chat2.jpg"></div>
+<div class="memory left"><img src="images/chat3.jpg"></div>
+<div class="memory right"><img src="images/chat4.jpg"></div>
+<div class="memory left"><img src="images/confess.jpg"></div>
+
+</div>
+</section>
+
+<section class="letter-section">
+<div class="letter">
+It was just a random app .. befriend.. it was 1st of December 2025 .. one random right swipe a random profile it felt like something but i didn't know what it was.. but then she accepted my request and we started talking and then each day i started feeling something.. each day sharing snaps chats and random voice notes .. and also we became comfortable so quick like hume pata bhi nhi chala how it happened then on Friday, 5th of dec i just thought of telling her i feel something.. but i jst avoided it and thought for 2 days that I'm sure or not .. or it's jst some sort of attraction.. but it was not jst attraction.. it was something more than love more than what words can't explain.. but i jst gathered the guts of confessing my feelings to her.. and i thought now I'm gone.. khel khatam .. but idk how but she felt the same we shared our insta and from there we can say december theory is real.. jst a random hii turned into a lifetime bond..
+</div>
+</section>
+
+</div>
+
+<script>
+const popup=document.getElementById('popup');
+const yesBtn=document.getElementById('yesBtn');
+const noBtn=document.getElementById('noBtn');
+const content=document.getElementById('mainContent');
+const music=document.getElementById('bgMusic');
+
+noBtn.addEventListener('click',()=>{
+noBtn.style.display='none';
+yesBtn.style.transform='scale(1.3)';
+});
+
+yesBtn.addEventListener('click',()=>{
+popup.style.display='none';
+content.classList.add('show');
+music.play();
+});
+
+const memories=document.querySelectorAll('.memory');
+
+window.addEventListener('scroll',()=>{
+memories.forEach(mem=>{
+const position=mem.getBoundingClientRect().top;
+const screen=window.innerHeight;
+if(position<screen-100){
+mem.classList.add('show');
+}
+});
+});
+</script>
+
 </body>
 </html>
