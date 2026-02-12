@@ -5,7 +5,8 @@ const mainContent = document.getElementById("mainContent");
 const music = document.getElementById("bgMusic");
 
 noBtn.addEventListener("click",()=>{
-  noBtn.style.display="none";
+  noBtn.style.opacity="0";
+  noBtn.style.pointerEvents="none";
   yesBtn.style.transform="scale(1.5)";
 });
 
@@ -15,15 +16,15 @@ yesBtn.addEventListener("click",()=>{
   music.play();
 });
 
-/* Scroll animation */
+/* Scroll Animation */
 
-const containers = document.querySelectorAll(".container");
+const memories = document.querySelectorAll(".memory");
 
 window.addEventListener("scroll",()=>{
-  containers.forEach(container=>{
-    const top = container.getBoundingClientRect().top;
+  memories.forEach(mem=>{
+    const top = mem.getBoundingClientRect().top;
     if(top < window.innerHeight - 100){
-      container.classList.add("show");
+      mem.classList.add("show");
     }
   });
 });
