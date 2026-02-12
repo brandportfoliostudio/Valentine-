@@ -3,67 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Gargi</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<title>Our Scrapbook</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="loader" id="loader">
-<div class="loader-text">Loading memories...</div>
-</div>
-
-<div class="overlay" id="popup">
-  <div class="popup">
-    <h2>Hey Gargi, would you like to be my Valentine?</h2>
-    <div class="buttons">
-      <button class="yes" id="yesBtn">Yes</button>
-      <button class="no" id="noBtn">No</button>
-    </div>
+<div class="intro" id="intro">
+  <div class="cover">
+    <h1>Our Memories</h1>
+    <button onclick="openBook()">Open Scrapbook</button>
   </div>
 </div>
 
-<audio id="bgMusic" src="song.mp3"></audio>
+<div class="book" id="book">
 
-<div class="particles"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
+  <div class="page">
+    <div class="polaroid">
+      <img src="chat1.jpg">
+    </div>
+  </div>
 
-<div class="content" id="mainContent">
+  <div class="page">
+    <div class="polaroid">
+      <img src="chat2.jpg">
+    </div>
+  </div>
 
-<section class="hero">
-<h1>Happy Valentine’s Day Gargi</h1>
-<p>From a random swipe to forever.</p>
-</section>
+  <div class="page">
+    <div class="polaroid">
+      <img src="chat3.jpg">
+    </div>
+  </div>
 
-<section class="journey">
-<div class="timeline">
+  <div class="page">
+    <div class="polaroid">
+      <img src="chat4.jpg">
+    </div>
+  </div>
 
-<div class="memory left"><img src="./images/chat1.jpg" loading="lazy"></div>
-<div class="memory right"><img src="./images/chat2.jpg" loading="lazy"></div>
-<div class="memory left"><img src="./images/chat3.jpg" loading="lazy"></div>
-<div class="memory right"><img src="./images/chat4.jpg" loading="lazy"></div>
-<div class="memory left"><img src="./images/confess.jpg" loading="lazy"></div>
-
-</div>
-</section>
-
-<section class="letter-section">
-<div class="letter">
-It was just a random app .. befriend.. it was 1st of December 2025 ..
-one random right swipe a random profile it felt like something but i didn't know what it was..
-but then she accepted my request and we started talking and then each day i started feeling something..
-each day sharing snaps chats and random voice notes .. and also we became comfortable so quick like hume pata bhi nhi chala how it happened then on Friday, 5th of dec i just thought of telling her i feel something..
-but i jst avoided it and thought for 2 days that I'm sure or not .. or it's jst some sort of attraction..
-but it was not jst attraction.. it was something more than love more than what words can't explain..
-but i jst gathered the guts of confessing my feelings to her.. and i thought now I'm gone.. khel khatam ..
-but idk how but she felt the same we shared our insta and from there we can say december theory is real..
-jst a random hii turned into a lifetime bond..
-</div>
-</section>
+  <div class="page">
+    <div class="polaroid">
+      <img src="confess.jpg">
+    </div>
+  </div>
 
 </div>
+
+<div class="controls">
+  <button onclick="prevPage()">←</button>
+  <button onclick="nextPage()">→</button>
+</div>
+
+<div class="hearts"></div>
 
 <script src="script.js"></script>
 </body>
